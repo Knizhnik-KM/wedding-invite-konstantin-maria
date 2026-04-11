@@ -1,0 +1,45 @@
+export function BootstrapScreen() {
+  return (
+    <section
+      className="rounded-[28px] p-6"
+      style={{
+        background: "var(--bg-surface)",
+        border: "1px solid var(--border-subtle)",
+        boxShadow: "0 12px 40px rgba(0,0,0,0.4)",
+      }}
+    >
+      <p
+        className="text-[11px] font-semibold uppercase tracking-[0.22em]"
+        style={{ color: "var(--text-muted)" }}
+      >
+        Loading
+      </p>
+      <div className="mt-4 space-y-2">
+        <h1
+          className="text-2xl font-bold tracking-tight"
+          style={{ color: "var(--text-primary)" }}
+        >
+          Restoring your profile
+        </h1>
+        <p className="text-sm leading-6" style={{ color: "var(--text-secondary)" }}>
+          We are checking whether your reading and home progress are already
+          available on this device.
+        </p>
+      </div>
+      {/* Animated dot indicator */}
+      <div className="mt-5 flex items-center gap-1.5">
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className="h-1.5 w-1.5 rounded-full"
+            style={{
+              background: "var(--accent-primary)",
+              opacity: 0.4 + i * 0.2,
+              animation: `pulse 1.4s ease-in-out ${i * 0.2}s infinite`,
+            }}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
